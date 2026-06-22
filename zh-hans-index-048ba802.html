@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c7娱乐 · 信息卡片介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f7f3ed;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            padding: 2rem 1rem;
+        }
+        .page {
+            max-width: 920px;
+            margin: 0 auto;
+            background: #fbf9f6;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        @media (min-width: 640px) {
+            body { padding: 3rem 2rem; }
+            .page { padding: 3.5rem 3rem; }
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            color: #1f1f1f;
+        }
+        .hero-sub {
+            font-size: 1rem;
+            color: #6b635c;
+            border-left: 4px solid #cdb89e;
+            padding-left: 1rem;
+            margin: 0 0 2rem 0;
+            font-weight: 350;
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        @media (min-width: 600px) {
+            .card-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #ede9e2;
+            transition: box-shadow 0.15s;
+        }
+        .card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.04); }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #2e2a26;
+        }
+        .card-title::before {
+            content: "▹";
+            color: #b7a48b;
+            font-size: 1.2rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #3e3a35;
+            margin-bottom: 0.3rem;
+        }
+        .card ul {
+            list-style: none;
+            margin: 0.5rem 0 0 0;
+        }
+        .card li {
+            font-size: 0.92rem;
+            padding: 0.2rem 0;
+            color: #4b453e;
+            display: flex;
+            gap: 0.4rem;
+        }
+        .card li::before {
+            content: "·";
+            color: #b7a48b;
+        }
+        .highlight-box {
+            background: #f2ede6;
+            border-left: 5px solid #cbb59b;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 18px 18px 0;
+            margin: 2.2rem 0 1.8rem 0;
+            font-size: 0.95rem;
+        }
+        .highlight-box strong {
+            color: #2c241c;
+        }
+        .link-sentence {
+            background: #ffffff;
+            padding: 1.2rem 1.5rem;
+            border-radius: 18px;
+            border: 1px solid #e7e0d7;
+            margin: 1.8rem 0;
+            font-size: 0.97rem;
+        }
+        .link-sentence a {
+            color: #6f5c43;
+            text-decoration: none;
+            border-bottom: 1.5px solid #dacfbf;
+            font-weight: 500;
+            padding: 0 0.1rem;
+        }
+        .link-sentence a:hover {
+            border-bottom-color: #8f795d;
+            color: #4d3d2b;
+        }
+        .faq-mini {
+            margin: 2rem 0 0 0;
+        }
+        .faq-mini details {
+            border-bottom: 1px solid #e8e2d9;
+            padding: 0.8rem 0;
+        }
+        .faq-mini details:first-of-type {
+            border-top: 1px solid #e8e2d9;
+        }
+        .faq-mini summary {
+            font-weight: 450;
+            cursor: pointer;
+            color: #2f2a25;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .faq-mini summary::before {
+            content: "﹖";
+            color: #b7a48b;
+            font-size: 1rem;
+            margin-right: 0.6rem;
+        }
+        .faq-mini details[open] summary::before {
+            content: "﹗";
+        }
+        .faq-mini .answer {
+            margin: 0.5rem 0 0 1.6rem;
+            color: #4e473f;
+            font-size: 0.92rem;
+        }
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e8e2d9;
+            font-size: 0.82rem;
+            color: #7f756b;
+            text-align: center;
+        }
+        .inline-code {
+            background: #ece8e1;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+            font-family: 'SF Mono', 'Cascadia Code', monospace;
+            font-size: 0.85rem;
+            color: #4d4137;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e4ddd3;
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>c7娱乐 · 信息卡片</h1>
+    <div class="hero-sub">稳定入口 · 页面说明 · 用途与场景概述</div>
+
+    <!-- 主视觉 / 用途卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-title">平台定位</div>
+            <p>面向中文用户的数字娱乐综合板块，提供多类型内容入口与稳定的访问通道。页面结构以信息聚合与功能引导为主，兼顾浏览效率与视觉清晰度。</p>
+            <ul>
+                <li>通用网页界面，适配主流设备</li>
+                <li>内容分区明确，导航可快速定位</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">用途场景</div>
+            <p>适用于日常信息获取、休闲浏览、内容发现等场景。页面内容涵盖多个兴趣方向，用户可根据自身需要选择对应模块。</p>
+            <ul>
+                <li>信息聚合与近期更新</li>
+                <li>分类入口与主题索引</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">适合人群</div>
+            <p>对网络内容有稳定浏览需求的成年用户。无论初次接触或长期使用，均可通过统一界面获得相对一致的访问体验。</p>
+            <ul>
+                <li>注重页面稳定与简洁</li>
+                <li>偏好信息密度适中的布局</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">访问方式</div>
+            <p>通过浏览器直接访问主站即可。无需额外安装程序，页面自适应桌面与移动端屏幕。建议使用主流浏览器以获得最佳显示效果。</p>
+            <ul>
+                <li>无插件要求，打开即用</li>
+                <li>响应式布局，阅读流畅</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 引用块 / 提示框 -->
+    <div class="highlight-box">
+        <strong>▎稳定入口说明</strong><br>
+        本站作为长期维护的页面入口，始终保持一致的主域名与页面结构。如遇访问波动，可检查网络环境或稍后重试。页面内容定期更新，以保持信息时效。
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="link-sentence">
+        对于需要稳定浏览体验的用户，可直接通过 <a href="https://zh-hans-c7ent.com">c7娱乐</a> 访问主界面。
+        该页面以信息卡片式布局组织内容，首页即展示主要用途及分类索引，无需深层跳转即可获取概览。
+    </div>
+
+    <p style="font-size:0.95rem; color:#4e473f; margin: 1rem 0;">
+        页面设计兼顾信息密度与阅读节奏：卡片区域突出核心用途，引用框补充访问说明，FAQ 摘要则解答常见疑问。
+        整体采用米白背景与低对比配色，减少视觉疲劳，适合长时间浏览。
+    </p>
+
+    <!-- 附加信息：简短说明 -->
+    <div style="background: #f8f5f0; padding: 1rem 1.2rem; border-radius: 20px; margin: 1.5rem 0;">
+        <p style="font-size:0.92rem; color:#3f3932; margin:0;">
+            <span style="background: #dacfc2; border-radius:14px; padding:0 0.6rem; font-size:0.8rem; color:#2f261d;">i</span> 
+            本介绍页面向首次访问用户提供页面结构预览，内容均基于实际页面功能归纳。未包含主观评价或无法验证的数据。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>页面主要提供哪些内容？</summary>
+            <div class="answer">首页以卡片形式展示平台定位、常见用途、适合人群及访问方式；同时包含引用提示与 FAQ 区域，方便用户快速了解页面结构。</div>
+        </details>
+        <details>
+            <summary>移动端显示是否正常？</summary>
+            <div class="answer">页面采用响应式设计，在手机与平板设备上自动调整布局与字号，保持内容可读性与操作友好度。</div>
+        </details>
+        <details>
+            <summary>链接指向是否长期有效？</summary>
+            <div class="answer">主域名 <span class="inline-code">zh-hans-c7ent.com</span> 为固定入口，页面结构保持稳定。如遇临时维护，可稍后重试。</div>
+        </details>
+    </div>
+
+    <!-- 自然的补充文字（避免章节模板化） -->
+    <hr>
+    <p style="font-size:0.92rem; color:#5b5349; margin: 1rem 0 0.2rem 0;">
+        卡片内容基于通用信息框架整理，不包含具体操作指引或实时数据。如需了解各功能模块的具体内容，建议直接浏览主站页面。
+    </p>
+    <p style="font-size:0.88rem; color:#6d655b;">
+        若页面内容或结构有调整，以主站实际展示为准。本介绍页仅作为概念性参考。
+    </p>
+
+    <div class="footer-note">
+        c7娱乐 · 信息卡片式介绍 · 页面说明
+    </div>
+
+</div>
+</body>
+</html>
